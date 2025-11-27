@@ -1,23 +1,42 @@
 
-m1 = float(input("Enter marks for subject 1: "))
-m2 = float(input("Enter marks for subject 2: "))
-m3 = float(input("Enter marks for subject 3: "))
-m4 = float(input("Enter marks for subject 4: "))
-m5 = float(input("Enter marks for subject 5: "))
+import sys
+
+
+if len(sys.argv) == 6:
+    script_name = sys.argv[0]
+    m1 = float(sys.argv[1])
+    m2 = float(sys.argv[2])
+    m3 = float(sys.argv[3])
+    m4 = float(sys.argv[4])
+    m5 = float(sys.argv[5])
+    print("User provided input marks:")
+else:
+    script_name = sys.argv[0]
+    
+    m1 = 75
+    m2 = 80
+    m3 = 70
+    m4 = 85
+    m5 = 90
+    print("No input given — using default marks:")
+
 
 average = (m1 + m2 + m3 + m4 + m5) / 5
 
 
-if average >= 90:
+if average >= 85:
     grade = "A"
-elif average >= 80:
-    grade = "B"
 elif average >= 70:
+    grade = "B"
+elif average >= 55:
     grade = "C"
-elif average >= 60:
+elif average >= 40:
     grade = "D"
 else:
     grade = "Fail"
 
-print(f"Average marks: {average}")
-print(f"Grade: {grade}")
+
+print("Script Name:", script_name)
+print("Marks:", m1, m2, m3, m4, m5)
+print("Average Marks:", average)
+print("Grade:", grade)
